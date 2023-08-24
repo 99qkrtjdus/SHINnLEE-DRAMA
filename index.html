@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<title>SHIN&LEE DARAMA</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/fullpage.css">
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="js/jquery.fullPage.js"></script>
+    <script>
+	  	$(document).ready(function(){
+	  		$("#fullpage").fullpage({
+	  			anchors:["1st","2st","3st","4st","5st"],
+	  			menu: "#topmenu",
+	  			navigation:true,
+	  			slideNavigation:true,
+	  		    afterLoad:function(anchorslink,index){
+		            console.log(anchorslink+","+index);
+		     
+		            if(index == 3){
+		                $("#view").addClass("moving");
+		            }else{
+		                $("#view").removeClass("moving");
+	                }  
+	            } 
+	        });  
+	  	});
+    </script>
+
+    <style>
+	  	nav#navTop{
+	      width: 800px;
+	      position: fixed;
+	      left: 50%;
+	      transform: translateX(-50%);
+	      z-index: 1;
+	    }
+	    ul#topmenu{
+	      display: table;
+	      width: 100%;
+	      margin: 20px auto;
+	    }
+
+	    nav#navTop li{
+	      display: table-cell;
+	      border: 1px solid #000;
+          border-radius: 20px;
+	    }
+	    
+	    nav#navTop li:first-child{border-left: none;}
+	    nav#navTop li:hover a{background-color: #000; color: #fff; border-radius: 20px;}
+	    nav#navTop li.active a{background-color: #000; color: #fff; border-radius: 20px;}
+	    nav#navTop li a{
+	      display: block;
+	      line-height: 40px;
+	      text-align: center;
+	      padding: 0 5px;
+	      color: #000;
+	      font-weight: bold;
+	      font-size: 20px;
+	    }
+
+        .active{background-color: #fff; color: #000;} 
+
+	  	.page{
+	  		background-repeat: no-repeat;
+	  		background-position: center;
+	  		background-size: cover;
+	        text-align: center;
+	  	}
+
+	    .scroll{
+		    position: absolute; 
+		    bottom: 20px; 
+		    left: 50%; 
+		    transform: translateX(-50%);
+		    animation-name: xScoll;
+		    animation-duration: 0.8s;
+		    animation-iteration-count: infinite;
+		    animation-direction: alternate;
+	    }
+
+	    @keyframes xScoll{
+	        from{bottom: 20px;}
+	        to{bottom: 40px;}
+	    }
+
+	    img{display: block; width: 50px; height: 50px;}
+
+    </style>
+</head>
+
+<body>
+	<nav id="navTop">
+		<ul id="topmenu" class="clearfix">
+			<li data-menuanchor = "1st"><a href="#1st">MAIN</a></li>
+			<li data-menuanchor = "2st"><a href="#2st">SHIN&LEE</a></li>
+			<li data-menuanchor = "3st"><a href="#3st">WORK</a></li>
+			<li data-menuanchor = "4st"><a href="#4st">GALLERY</a></li>
+			<li data-menuanchor = "5st"><a href="#5st">NEWS</a></li>
+		</ul>
+	</nav>
+
+	<div id="fullpage">
+	    <div class="section page" id="page1" data-anchor="1st">
+	        <video width="1920" height="720" autoplay muted loop>
+                <source src="video/main.mp4" type="video/mp4">
+            </video>
+            <div class="scroll">
+	        	<a href="#2st">
+	          		<img src="images/mouse.png" alt="scroll">
+	        	</a>
+            </div>  
+        </div>
+        <div class="section page" id="page2" data-anchor="2st">
+	        <video width="1920" height="720" autoplay muted loop>
+	            <source src="video/shin&lee.mp4" type="video/mp4">
+	        </video>
+	        <div class="scroll">
+	            <a href="#3st">
+	          	    <img src="images/mouse.png" alt="scroll">
+	            </a>
+	        </div>
+        </div>
+	    <div class="section page" id="page3" data-anchor="3st">
+	        <video width="1920" height="720" autoplay muted loop>
+	            <source src="video/work.mp4" type="video/mp4">
+	        </video>
+	        <div class="scroll">
+	            <a href="#4st">
+	          	    <img src="images/mouse.png" alt="scroll">
+	            </a>
+	        </div>
+	    </div>
+	    <div class="section page" id="page4" data-anchor="4st">
+	    	<video width="1920" height="720" autoplay muted loop>
+	            <source src="video/gallery.mp4" type="video/mp4">
+	        </video>
+	        <div class="scroll">
+	            <a href="#5st">
+	          	    <img src="images/mouse.png" alt="scroll">
+	            </a>
+	        </div>
+	    </div>
+        
+        <div class="section page" id="page5" data-anchor="5st">
+	        <video width="1920" height="720" autoplay muted loop>
+                <source src="video/news.mp4" type="video/mp4">
+            </video>
+            <div class="scroll">
+	        	<a href="#1st">
+	          		<img src="images/mouse.png" alt="scroll">
+	        	</a>
+            </div>  
+        </div>
+  </div>
+</body>
+</html>
